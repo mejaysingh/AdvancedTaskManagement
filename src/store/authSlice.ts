@@ -15,7 +15,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action: PayloadAction<any>) => {
-      console.log('redux data==', action.payload);
+      // console.log('redux data==', action.payload);
       state.status = true;
       state.userData = action.payload;
     },

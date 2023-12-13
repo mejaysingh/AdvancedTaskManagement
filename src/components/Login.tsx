@@ -17,13 +17,13 @@ function Login() {
   const [error, setError] = useState<string>("");
 
   const login = async (data: LoginForm) => {
-    console.log('data==', data);
+    // console.log('data==', data);
     setError("");
     try {
       const session = await authService.login(data);
       if (session) {
         const userData = await authService.getCurrentUser();
-        console.log('usr fet data==', userData);
+        // console.log('usr fet data==', userData);
         if (userData) dispatch(authLogin(userData));
         navigate("/");
       }

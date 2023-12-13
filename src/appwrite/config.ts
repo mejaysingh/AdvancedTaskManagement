@@ -20,7 +20,7 @@ export class Service {
   }
 
   async getTodos(userId: string): Promise<DatabaseDocumentList<Todo> | false> {
-    console.log('query==', userId);
+    // console.log('query==', userId);
     try {
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
@@ -36,7 +36,7 @@ export class Service {
   }
 
   async createTodo({ text, userId, completed = false }: { text: string, userId: string, completed?: boolean }): Promise<Todo | void> {
-    console.log('data==', text, 'tt=', userId);
+    // console.log('data==', text, 'tt=', userId);
     try {
       return await this.databases.createDocument(
         conf.appwriteDatabaseId,
@@ -54,7 +54,7 @@ export class Service {
   }
 
   async updateTodo({ id, text }: { id: string, text: string }): Promise<Todo | void> {
-    console.log('api cal==', text, 'tt=', id);
+    // console.log('api cal==', text, 'tt=', id);
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
@@ -70,7 +70,7 @@ export class Service {
   }
 
   async deleteTodo(id: string): Promise<boolean> {
-    console.log('api==', id);
+    // console.log('api==', id);
     try {
       await this.databases.deleteDocument(
         conf.appwriteDatabaseId,
@@ -85,7 +85,7 @@ export class Service {
   }
 
   async toggleTodo({ id, completed }: { id: string, completed: boolean }): Promise<Todo | void> {
-    console.log('api cal==', completed, 'tt=', id);
+    // console.log('api cal==', completed, 'tt=', id);
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,

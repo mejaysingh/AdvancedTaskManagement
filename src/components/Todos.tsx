@@ -22,9 +22,9 @@ function Todos() {
   const filter = todos.filter;
 
   useEffect(() => {
-    console.log('call query==', userData, ' hhh=', userData.$id);
+    // console.log('call query==', userData, ' hhh=', userData.$id);
     appwriteService.getTodos(userData.$id).then((todos) => {
-      console.log('todos fetch==', todos.documents);
+      // console.log('todos fetch==', todos.documents);
       if (todos) {
         dispatch(listTodo(todos.documents));
       }
@@ -48,7 +48,7 @@ function Todos() {
   };
 
   const todoHandler = (type: string, input: string) => {
-    console.log('upd==', todo);
+    // console.log('upd==', todo);
     if (input) {
       if (type === 'Add') {
         todoCreate(input);
@@ -67,11 +67,11 @@ function Todos() {
   };
 
   const todoCreate = async (text: string) => {
-    console.log('user data==', userData);
+    // console.log('user data==', userData);
     setError("");
     try {
       const dbTodo = await appwriteService.createTodo({ text, userId: userData.$id });
-      console.log('data==', dbTodo);
+      // console.log('data==', dbTodo);
       if (dbTodo) dispatch(addTodo(dbTodo));
     } catch (error) {
       setError(error.message);
@@ -79,11 +79,11 @@ function Todos() {
   };
 
   const todoUpdate = async (text: string) => {
-    console.log('upd==', todo, 'tct=', text);
+    // console.log('upd==', todo, 'tct=', text);
     setError("");
     try {
       const dbTodo = await appwriteService.updateTodo({ id: todo?.$id || '', text });
-      console.log('db==', dbTodo);
+      // console.log('db==', dbTodo);
       if (dbTodo) dispatch(editTodo(dbTodo));
       setTodo(null);
     } catch (error) {
@@ -92,11 +92,11 @@ function Todos() {
   };
 
   const todoDelete = async (id: string) => {
-    console.log('del==', todo, 'tct=', id);
+    // console.log('del==', todo, 'tct=', id);
     setError("");
     try {
       const dbTodo = await appwriteService.deleteTodo(id);
-      console.log('db==', dbTodo);
+      // console.log('db==', dbTodo);
       if (dbTodo) dispatch(removeTodo(id));
     } catch (error) {
       setError(error.message);
@@ -106,9 +106,9 @@ function Todos() {
   const todoToggle = async (id: string, completed: boolean) => {
     setError("");
     try {
-      console.log('comp==', completed, 'tct=', id);
+      // console.log('comp==', completed, 'tct=', id);
       const dbTodo = await appwriteService.toggleTodo({ id, completed: !completed });
-      console.log('db==', dbTodo);
+      // console.log('db==', dbTodo);
       if (dbTodo) dispatch(toggleTodo(dbTodo));
     } catch (error) {
       setError(error.message);
