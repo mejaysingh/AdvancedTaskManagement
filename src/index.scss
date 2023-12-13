@@ -1,0 +1,228 @@
+$primary-color-login: #4caf50;
+$primary-color-signup: #2196f3;
+$primary-color-button-hover: #007bff;
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.auth-container {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 8px;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 16px;
+    }
+
+    button {
+      cursor: pointer;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+  }
+
+  .error {
+    color: #dc3545; // Red
+  }
+}
+
+.create-account-link,
+.login-link {
+  margin-top: 16px;
+  text-align: center;
+
+  p {
+    margin-bottom: 8px;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.login-container {
+  @extend .auth-container;
+
+  button {
+    background-color: $primary-color-login;
+    color: white;
+  }
+
+  .login-link {
+    a {
+      color: $primary-color-login;
+    }
+  }
+}
+
+.signup-container {
+  @extend .auth-container;
+
+  button {
+    background-color: $primary-color-signup;
+    color: white;
+  }
+
+  .create-account-link {
+    a {
+      color: $primary-color-signup;
+    }
+  }
+}
+
+.todo-app {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border: 1px solid #ccc;
+
+  h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    &.completed {
+      text-decoration: line-through;
+      background-color: #e0e0e0;
+    }
+
+    span {
+      flex: 1;
+    }
+
+    button {
+      padding: 8px;
+      margin-left: 5px;
+      cursor: pointer;
+      border: none;
+      // background-color: #007bff;
+      color: #fff;
+      border-radius: 3px;
+      transition: background-color 0.3s;
+
+      &.edit-btn {
+        background-color: #ffc107; // Yellow
+        color: #fff;
+      }
+
+      &.delete-btn {
+        background-color: #dc3545; // Red
+        color: #fff;
+      }
+
+      &.check-btn {
+        background-color: #28a745; // Green
+        color: #fff;
+      }
+
+      &:hover {
+        background-color: $primary-color-button-hover;
+      }
+    }
+  }
+
+  .add-task {
+    display: flex;
+    margin-top: 20px;
+
+    input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 8px;
+      border: none;
+      background-color: #28a745;
+      color: #fff;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    
+      &:hover {
+        background-color: $primary-color-button-hover;
+      }
+    }
+  }
+
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    button {
+      padding: 8px;
+      margin: 0 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 3px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #b6b6b6;
+      }
+
+      &.active {
+        background-color: $primary-color-button-hover;
+        color: #fff;
+      }
+    }
+  }
+
+  .logout-button {
+    @extend .filter-buttons;
+  }
+}
